@@ -1,3 +1,5 @@
+import time
+
 def isPrime(n):
     for i in range(2, int(n**(0.5))+1):
         if (n%i == 0):
@@ -5,19 +7,36 @@ def isPrime(n):
 
     return True;
 
-# start at 2 and 3
-sum = 2 + 3
-i = 1
+def sumPrimeStep1(n):
+    total = 0 
+    i = 2
 
-while i < 2000000:
-    # i6 = i * 6
-    # if (isPrime(i6 - 1)):
-    #     sum += i6 - 1
-    # if (isPrime(i6 + 1)):
-    #     sum += i6 - 1
-    if (isPrime(i)):
-        sum += i
-    i += 1
-    print(i)
+    while i < n:
+        if (isPrime(i)):
+            total += i
+        i += 1
 
-print (sum)
+    return total
+
+def sumPrimeStep6(n):
+    total = 2 + 3
+    i = 6
+
+    while i < n:
+        if isPrime(i+1):
+            total += i+1
+        if isPrime(i-1):
+            total += i-1
+        i += 6
+
+    return total
+
+num = 5000000
+t1 = time.process_time()
+print(sumPrimeStep1(num))
+print (time.process_time() - t1)
+
+t2 = time.process_time()
+print(sumPrimeStep6(num))
+print(time.process_time() - t2)
+
