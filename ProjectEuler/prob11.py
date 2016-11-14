@@ -6,7 +6,7 @@ import numpy as np
 n = 20
 
 grid = np.empty(20*20).reshape(20,20).astype(int)
-file = open('input11.txt', 'r')
+file = open('input/input11.txt', 'r')
 
 for i in range(n) :
     line = file.readline().split(" ")

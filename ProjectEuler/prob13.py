@@ -1,6 +1,6 @@
 length = 50
 
-file = open('input13.txt', 'r')
+file = open('input/input13.txt', 'r')
 
 nums = []
 for line in file:
