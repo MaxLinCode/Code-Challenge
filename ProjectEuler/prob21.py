@@ -16,13 +16,11 @@ def sumProperDivisors(n):
 # n is the upper bound
 def sumAmicableNumbers(n):
     total = 0
-    prevAmicable = -1
     for a in range(1, n):
         b = sumProperDivisors(a)
         bdivs = sumProperDivisors(b)
         if b > a and bdivs == a:
             total += b + bdivs
-            prevAmicable = b
             print(a)
             print(b)
 
