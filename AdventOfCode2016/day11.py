@@ -44,6 +44,9 @@ def stupidPad(num):
 
 def isPossibleConfig(line):
     line = str(line)[1:]
+    for char in line:
+        if int(char) >= numFloors:
+            return False
     # for each gen
     i = 0
     while i < len(line):
@@ -84,14 +87,13 @@ print("Calculating possible states.")
 nodes = []
 for i in range(int(endNode)+1):
     config = stupidPad(i)
-    for char in str(config):
-        if int(char) >= numFloors:
-            break
     if isPossibleConfig(config): 
-         nodes.append([config,[],False])
+        print(config)
+        nodes.append([config,[],False])
 
 
 startNode = "00000121111"
+# startNode = "01020"
 print(startNode)
 print(endNode)
 # put start node at pos 0
